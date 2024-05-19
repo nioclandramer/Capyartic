@@ -41,6 +41,6 @@ public class Usuario {
     @Column(nullable = false)
     private LocalDateTime fechaNacimiento;
 
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "admin")
     private List<Admin> admins;
 }
