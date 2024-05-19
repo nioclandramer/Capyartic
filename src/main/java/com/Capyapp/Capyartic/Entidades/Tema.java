@@ -24,4 +24,6 @@ public class Tema {
     @ManyToOne
     @JoinColumn(name = "categoriaId", nullable = false)
     private Categoria categoria;
+    @OneToOne(fetch = FetchType.EAGER,mappedBy = "tema")
+    private Sesion sesion;
 }

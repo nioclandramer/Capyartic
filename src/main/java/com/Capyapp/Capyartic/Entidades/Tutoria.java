@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table
 @Getter
@@ -33,4 +35,8 @@ public class Tutoria {
     @ManyToOne
     @JoinColumn(name = "categoriaId", nullable = false)
     private Categoria categoria;
+
+    @OneToMany(mappedBy = "sesion")
+    private List<Sesion> sesiones;
+
 }
