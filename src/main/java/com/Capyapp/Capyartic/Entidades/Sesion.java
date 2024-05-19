@@ -1,33 +1,25 @@
 package com.Capyapp.Capyartic.Entidades;
 
 import jakarta.persistence.*;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "Categorias")
+@Table
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
-
-public class Categoria {
+public class Sesion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    private String nombre;
-    @Column(nullable = true)
-    private String descripcion;
-    @OneToMany(mappedBy = "tutoria")
-    private List<Tutoria> tutorias;
-    @ManyToMany(mappedBy = "categorias")
-    private List<Tutor> tutores;
-    @OneToMany(mappedBy = "tema")
-    private List<Tema> temas;
+    private LocalDateTime horaInicio;
 }

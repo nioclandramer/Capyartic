@@ -1,33 +1,27 @@
 package com.Capyapp.Capyartic.Entidades;
 
 import jakarta.persistence.*;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
-@Table(name = "Categorias")
+@Table
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
-
-public class Categoria {
+public class Tema {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
     private String nombre;
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String descripcion;
-    @OneToMany(mappedBy = "tutoria")
-    private List<Tutoria> tutorias;
-    @ManyToMany(mappedBy = "categorias")
-    private List<Tutor> tutores;
-    @OneToMany(mappedBy = "tema")
-    private List<Tema> temas;
+    @ManyToOne
+    @JoinColumn(name = "categoriaId", nullable = false)
+    private Categoria categoria;
 }

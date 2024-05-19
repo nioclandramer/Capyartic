@@ -21,4 +21,12 @@ public class Tutor extends Usuario{
 
     @OneToMany(mappedBy = "tutoria")
     private List<Tutoria> tutorias;
+
+    @ManyToMany
+    @JoinTable(
+            name = "CategoriasTutor",
+            joinColumns = @JoinColumn(name = "tutor_id"),
+            inverseJoinColumns = @JoinColumn(name = "categoria_id")
+    )
+    private List<Categoria> categorias;
 }
