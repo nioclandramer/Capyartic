@@ -42,5 +42,5 @@ public class Usuario {
     private LocalDateTime fechaNacimiento;
 
     @OneToMany(mappedBy = "usuario")
-    private List<Alumno> alumnos;
+    private List<Admin> admins;
 }
