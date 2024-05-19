@@ -40,10 +40,9 @@ public class Usuario {
     private LocalDateTime fechaRegistro;
     @Column(nullable = false)
     private LocalDateTime fechaNacimiento;
+    @Column(nullable = false)
+    private Rol rolUser;
 
-    @ManyToOne
-    @JoinColumn(name = "rolId")
-    private Rol rol;
 
     @OneToMany(mappedBy = "usuario")
     private List<Admin> admins;
