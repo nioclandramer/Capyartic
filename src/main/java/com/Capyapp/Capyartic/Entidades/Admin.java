@@ -13,12 +13,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Admin {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Admin extends Usuario{
 
-    @OneToOne(optional = false)
-    @JoinColumn(name="usuarioId",referencedColumnName = "id")
-    private Usuario usuario;
 }

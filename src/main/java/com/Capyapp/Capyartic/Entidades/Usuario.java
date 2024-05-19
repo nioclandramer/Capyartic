@@ -10,13 +10,12 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
-@Table
+@MappedSuperclass
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario {
+public abstract class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,16 +39,8 @@ public class Usuario {
     private LocalDateTime fechaRegistro;
     @Column(nullable = false)
     private LocalDateTime fechaNacimiento;
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Rol rolUser;
-
-    @OneToOne(mappedBy = "usuario")
-    private Admin admin;
-
-    @OneToOne(mappedBy = "usuario")
-    private Alumno alumno;
-
-    @OneToOne(mappedBy = "usuario")
-    private Tutor tutor;
 
 }
