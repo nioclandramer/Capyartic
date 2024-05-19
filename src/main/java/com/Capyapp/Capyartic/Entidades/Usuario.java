@@ -43,7 +43,13 @@ public class Usuario {
     @Column(nullable = false)
     private Rol rolUser;
 
+    @OneToOne(mappedBy = "usuario")
+    private Admin admin;
 
-    @OneToMany(mappedBy = "usuario")
-    private List<Admin> admins;
+    @OneToOne(mappedBy = "usuario")
+    private Alumno alumno;
+
+    @OneToOne(mappedBy = "usuario")
+    private Tutor tutor;
+
 }

@@ -18,5 +18,7 @@ public class Tutor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    @OneToOne(optional = false)
+    @JoinColumn(name="usuarioId",referencedColumnName = "id")
+    private Usuario usuario;
 }
