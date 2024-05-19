@@ -1,14 +1,13 @@
 package com.Capyapp.Capyartic.Entidades;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.List;
+
 
 @MappedSuperclass
 @Getter
@@ -42,5 +41,8 @@ public abstract class Usuario {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Rol rolUser;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private EstadoUsuario estadoUsuario;
 
 }
