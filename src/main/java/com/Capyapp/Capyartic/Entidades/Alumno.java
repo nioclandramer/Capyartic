@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table
 @Getter
@@ -16,5 +18,8 @@ import lombok.Setter;
 public class Alumno extends  Usuario{
     @ManyToOne
     @JoinColumn(name = "nivelEducativoId")
-    private Alumno alumno;
+    private NivelEducativo NivelEducativo;
+
+    @OneToMany(mappedBy = "tutoria")
+    private List<Tutoria> tutorias;
 }

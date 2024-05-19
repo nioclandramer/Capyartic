@@ -25,5 +25,6 @@ public class Categoria {
     private String nombre;
     @Column(nullable = true)
     private String descripcion;
-
+    @OneToMany(mappedBy = "tutoria")
+    private List<Tutoria> tutorias;
 }

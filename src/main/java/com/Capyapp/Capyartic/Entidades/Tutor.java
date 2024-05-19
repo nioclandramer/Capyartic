@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table
 @Getter
@@ -16,4 +18,7 @@ import lombok.Setter;
 public class Tutor extends Usuario{
     @Column(nullable = true)
     private String tituloProfesional;
+
+    @OneToMany(mappedBy = "tutoria")
+    private List<Tutoria> tutorias;
 }
