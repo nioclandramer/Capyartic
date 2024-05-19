@@ -40,9 +40,16 @@ public class Usuario {
     private LocalDateTime fechaRegistro;
     @Column(nullable = false)
     private LocalDateTime fechaNacimiento;
+    @Column(nullable = false)
+    private Rol rolUser;
 
-    @OneToMany(mappedBy = "admin")
-    private List<Admin> admins;
+    @OneToOne(mappedBy = "usuario")
+    private Admin admin;
+
+    @OneToOne(mappedBy = "usuario")
+    private Alumno alumno;
+
     @OneToOne(mappedBy = "usuario")
     private Tutor tutor;
+
 }

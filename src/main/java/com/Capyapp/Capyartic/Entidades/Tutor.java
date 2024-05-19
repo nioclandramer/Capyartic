@@ -7,12 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.naming.Name;
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
-@Table(name = "Tutoress")
+@Table
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,18 +17,6 @@ public class Tutor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne(optional = false)
-    @JoinColumn(name = "usuarioId",referencedColumnName = "id")
-    private Usuario usuario;
-    @ManyToMany
-    @JoinTable(
-            name = "CategoriasTutores",
-            joinColumns = @JoinColumn(name = "TutorId", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "CategoriaId", referencedColumnName = "id")
-    )
-    private List<Categoria> categorias = new ArrayList<>();
 
-    public void addCategoria( Categoria categoria){
-        this.categorias.add(categoria);
-    }
+
 }

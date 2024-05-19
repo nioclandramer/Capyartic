@@ -1,23 +1,7 @@
 package com.Capyapp.Capyartic.Entidades;
 
-import jakarta.persistence.*;
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Entity
-@Table
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Rol {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
-    private String rol;
+public enum Rol {
+    ALUMNO,
+    ADMIN,
+    TUTOR
 }
