@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table
 @Getter
@@ -25,7 +27,18 @@ public class Usuario {
     private String segundoApellido;
     @Column(unique = true,nullable = false)
     private String email;
+    @Column(nullable = true)
+    private Integer numeroTelefono;
+    @Column(nullable = false)
+    private String sexo;
+    @Column(nullable = false)
+    private String contraseña;
+    @Column(nullable = false)
+    private String nombreUsuario;
+    @Column(nullable = false)
+    private LocalDateTime fechaRegistro;
+    @Column(nullable = false)
+    private LocalDateTime fechaNacimiento;
 
-    private String direccion;
 
 }
