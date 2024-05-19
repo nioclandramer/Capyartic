@@ -19,6 +19,6 @@ public class Admin {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "adminId")
-    private Admin admin;
+    @JoinColumn(name = "usuarioId")
+    private Usuario usuario;
 }
