@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table
 @Getter
@@ -20,4 +22,7 @@ public class NivelEducativo {
 
     @Column(nullable = false)
     private String nivelEducativo;
+
+    @OneToMany(mappedBy = "alumno")
+    private List<Alumno> alumno;
 }

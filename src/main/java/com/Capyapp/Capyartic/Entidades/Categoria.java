@@ -26,6 +26,4 @@ public class Categoria {
     @Column(nullable = true)
     private String descripcion;
 
-    @ManyToMany(mappedBy = "categorias")
-    private List<Tutor> tutores = new ArrayList<>();
 }

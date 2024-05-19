@@ -14,5 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Alumno extends  Usuario{
-
+    @ManyToOne
+    @JoinColumn(name = "nivelEducativoId")
+    private Alumno alumno;
 }

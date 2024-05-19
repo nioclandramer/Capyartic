@@ -14,5 +14,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tutor extends Usuario{
-
+    @Column(nullable = true)
+    private String tituloProfesional;
 }
