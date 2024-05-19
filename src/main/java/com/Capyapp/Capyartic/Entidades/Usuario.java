@@ -43,4 +43,6 @@ public class Usuario {
 
     @OneToMany(mappedBy = "admin")
     private List<Admin> admins;
+    @OneToOne(mappedBy = "usuario")
+    private Tutor tutor;
 }
