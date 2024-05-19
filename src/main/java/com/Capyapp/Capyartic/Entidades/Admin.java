@@ -13,11 +13,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EstadoUsuario {
+public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String estadoUsuario;
+    @ManyToOne
+    @JoinColumn(name = "usuarioId")
+    private Usuario usuario;
 }

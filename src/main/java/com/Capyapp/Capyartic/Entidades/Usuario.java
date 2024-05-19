@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table
@@ -40,5 +41,6 @@ public class Usuario {
     @Column(nullable = false)
     private LocalDateTime fechaNacimiento;
 
-
+    @OneToMany(mappedBy = "usuario")
+    private List<Alumno> alumnos;
 }
