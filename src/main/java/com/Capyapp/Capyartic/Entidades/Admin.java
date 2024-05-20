@@ -9,10 +9,6 @@ import lombok.Setter;
 
 @Entity
 @Table
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Admin extends Usuario{
 
 }

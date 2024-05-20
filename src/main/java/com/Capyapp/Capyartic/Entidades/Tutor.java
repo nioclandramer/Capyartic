@@ -19,7 +19,7 @@ public class Tutor extends Usuario{
     @Column(nullable = true)
     private String tituloProfesional;
 
-    @OneToMany(mappedBy = "tutoria")
+    @OneToMany(mappedBy = "tutor")
     private List<Tutoria> tutorias;
 
     @ManyToMany

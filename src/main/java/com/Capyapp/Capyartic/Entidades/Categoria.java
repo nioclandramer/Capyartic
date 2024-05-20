@@ -24,10 +24,10 @@ public class Categoria {
     private String nombre;
     @Column(nullable = true)
     private String descripcion;
-    @OneToMany(mappedBy = "tutoria")
+    @OneToMany(mappedBy = "categoria")
     private List<Tutoria> tutorias;
     @ManyToMany(mappedBy = "categorias")
     private List<Tutor> tutores;
-    @OneToMany(mappedBy = "tema")
+    @OneToMany(mappedBy = "categoria")
     private List<Tema> temas;
 }

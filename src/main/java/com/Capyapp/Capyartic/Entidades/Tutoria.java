@@ -36,7 +36,7 @@ public class Tutoria {
     @JoinColumn(name = "categoriaId", nullable = false)
     private Categoria categoria;
 
-    @OneToMany(mappedBy = "sesion")
+    @OneToMany(mappedBy = "tutoria")
     private List<Sesion> sesiones;
 
 }

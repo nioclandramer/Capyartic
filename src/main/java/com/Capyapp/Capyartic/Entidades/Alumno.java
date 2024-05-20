@@ -20,6 +20,6 @@ public class Alumno extends  Usuario{
     @JoinColumn(name = "nivelEducativoId")
     private NivelEducativo NivelEducativo;
 
-    @OneToMany(mappedBy = "tutoria")
+    @OneToMany(mappedBy = "alumno")
     private List<Tutoria> tutorias;
 }
