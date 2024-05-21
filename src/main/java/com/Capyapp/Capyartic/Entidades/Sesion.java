@@ -29,7 +29,7 @@ public class Sesion {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private EstadoSesion estadoSesion;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "temaId")
     private Tema tema;
     @ManyToOne

@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table
 @Getter
@@ -24,6 +26,7 @@ public class Tema {
     @ManyToOne
     @JoinColumn(name = "categoriaId", nullable = false)
     private Categoria categoria;
-    @OneToOne(fetch = FetchType.EAGER,mappedBy = "tema")
-    private Sesion sesion;
+
+    @OneToMany(mappedBy = "tema")
+    private List<Sesion> sesiones;
 }
