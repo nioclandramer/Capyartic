@@ -1,5 +1,4 @@
 package com.Capyapp.Capyartic.Dto.Alumno;
 
-
-public record AlumnoDto() {
+public record AlumnoToSaveDto() {
 }

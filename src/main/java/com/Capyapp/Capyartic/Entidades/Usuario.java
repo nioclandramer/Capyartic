@@ -21,9 +21,11 @@ public abstract class Usuario {
     private Long id;
     @Column(nullable = false)
     private String primerNombre;
+    @Column(nullable = true)
     private String segundoNombre;
     @Column(nullable = false)
     private String primerApellido;
+    @Column(nullable = true)
     private String segundoApellido;
     @Column(unique = true,nullable = false)
     private String email;
