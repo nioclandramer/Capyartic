@@ -9,7 +9,8 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
 @NoArgsConstructor
