@@ -23,6 +23,4 @@ public class Alumno extends  Usuario{
     @OneToMany(mappedBy = "alumno")
     private List<Tutoria> tutorias;
 
-    @OneToMany(mappedBy = "alumno")
-    private List<Solicitud> solicitud;
 }

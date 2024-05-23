@@ -21,8 +21,6 @@ public class Tutor extends Usuario{
 
     @OneToMany(mappedBy = "tutor")
     private List<Tutoria> tutorias;
-    @OneToMany(mappedBy = "tutor")
-    private List<Solicitud> solicitud;
     @ManyToMany
     @JoinTable(
             name = "CategoriasTutores",
