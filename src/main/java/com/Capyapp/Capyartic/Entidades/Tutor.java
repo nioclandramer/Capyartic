@@ -29,7 +29,14 @@ public class Tutor extends Usuario{
     )
     private List<Categoria> categorias;
 
+
     public void addCategoria(Categoria categoria) {
+
         this.categorias.add(categoria);
+        categoria.getTutores().add(this);
+    }
+    public void removeCategoria(Categoria categoria) {
+        this.categorias.remove(categoria);
+        categoria.getTutores().remove(this);
     }
 }

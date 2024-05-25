@@ -30,4 +30,34 @@ public class Categoria {
     private List<Tutor> tutores;
     @OneToMany(mappedBy = "categoria")
     private List<Tema> temas;
+    // Methods to manage bidirectional relationships
+    public void addTutoria(Tutoria tutoria) {
+        tutorias.add(tutoria);
+        tutoria.setCategoria(this);
+    }
+
+    public void removeTutoria(Tutoria tutoria) {
+        tutorias.remove(tutoria);
+        tutoria.setCategoria(null);
+    }
+
+    public void addTutor(Tutor tutor) {
+        tutores.add(tutor);
+        tutor.getCategorias().add(this);
+    }
+
+    public void removeTutor(Tutor tutor) {
+        tutores.remove(tutor);
+        tutor.getCategorias().remove(this);
+    }
+
+    public void addTema(Tema tema) {
+        temas.add(tema);
+        tema.setCategoria(this);
+    }
+
+    public void removeTema(Tema tema) {
+        temas.remove(tema);
+        tema.setCategoria(null);
+    }
 }

@@ -21,7 +21,7 @@ public class NivelEducativo {
     private Long id;
 
     @Column(nullable = false)
-    private String nivelEducativo;
+    private String nombre;
 
     @OneToMany(mappedBy = "NivelEducativo")
     private List<Alumno> alumno;
