@@ -1,4 +1,4 @@
 package com.Capyapp.Capyartic.Dto.Categoria;
 
-public record CategoriaToSaveDto(Long id, String nombre, String descripcion) {
+public record CategoriaToSaveDto(String nombre, String descripcion) {
 }
