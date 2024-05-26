@@ -18,7 +18,7 @@ import java.util.List;
 public class Alumno extends  Usuario{
     @ManyToOne
     @JoinColumn(name = "nivelEducativoId")
-    private NivelEducativo NivelEducativo;
+    private NivelEducativo nivelEducativo;
 
     @OneToMany(mappedBy = "alumno")
     private List<Tutoria> tutorias;

@@ -9,13 +9,13 @@ import java.util.List;
 public record CategoriaDto(
         String nombre,
         String descripcion,
-        List<TutoriaDto> tutoriaDtos,
-        List<TemaDto> temaDtos
+        List<TutoriaDto> tutorias,
+        List<TemaDto> temas
 ) {
     public  List<TutoriaDto> getUnmodifiableTutorias(){
-        return Collections.unmodifiableList(tutoriaDtos);
+        return Collections.unmodifiableList(tutorias);
     }
     public List<TemaDto> getUnmodifiableTema(){
-        return Collections.unmodifiableList(temaDtos);
+        return Collections.unmodifiableList(temas);
     }
 }

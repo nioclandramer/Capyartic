@@ -10,5 +10,5 @@ import java.util.List;
 @Data
 public class AlumnoToSaveDto extends UsuarioToSaveDto
 {
-    private NivelEducativoDto nivelEducativoDto;
+    private NivelEducativoDto nivelEducativo;
 }
