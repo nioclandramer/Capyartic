@@ -2,23 +2,21 @@ package com.Capyapp.Capyartic.Dto.Usuario;
 
 import com.Capyapp.Capyartic.Entidades.EstadoUsuario;
 import com.Capyapp.Capyartic.Entidades.Rol;
+import lombok.Data;
 
 import java.time.LocalDateTime;
-
-public record UsuarioDto(
-        Long id,
-        String primerNombre,
-        String segundoNombre,
-        String primerApellido,
-        String segundoApellido,
-        String email,
-        Integer numeroTelefono,
-        String sexo,
-        String contraseña,
-        String nombreUsuario,
-        LocalDateTime fechaRegistro,
-        LocalDateTime fechaNacimiento,
-        Rol rolUser,
-        EstadoUsuario estadoUsuario
-) {
+@Data
+public abstract class UsuarioDto {
+    private String primerNombre;
+    private String segundoNombre;
+    private String primerApellido;
+    private String segundoApellido;
+    private String email;
+    private Integer numeroTelefono;
+    private String sexo;
+    private String nombreUsuario;
+    private LocalDateTime fechaRegistro;
+    private LocalDateTime fechaNacimiento;
+    private Rol rolUser;
+    private EstadoUsuario estadoUsuario;
 }
