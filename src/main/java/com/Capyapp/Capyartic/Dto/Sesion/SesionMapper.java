@@ -11,4 +11,5 @@ public interface SesionMapper {
     SesionMapper INSTANCE= Mappers.getMapper(SesionMapper.class);
     SesionDto SesionToSesionDto(Sesion sesion);
     Sesion SesionDtoToSesion(SesionDto sesion);
+    SesionToSaveDto SesionToSaveDto(Sesion sesion);
 }
