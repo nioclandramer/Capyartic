@@ -11,4 +11,5 @@ public interface TemaMapper {
      TemaMapper INSTANCE= Mappers.getMapper(TemaMapper.class);
      Tema temaDtoToTema(TemaDto temaDto);
      TemaDto temaToTemaDto(Tema tema);
+     TemaToSaveDto temaToSaveDto(Tema tema);
 }
