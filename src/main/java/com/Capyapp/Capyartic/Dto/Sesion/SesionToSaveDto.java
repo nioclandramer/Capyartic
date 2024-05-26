@@ -8,5 +8,5 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public record SesionToSaveDto(LocalTime horaInicio, LocalTime horaFinal, LocalDateTime fecha, EstadoSesion estadoSesion,
-                              TemaDto tema , CategoriaDto categoriaDto) {
+                              TemaDto tema , CategoriaDto categoria) {
 }
