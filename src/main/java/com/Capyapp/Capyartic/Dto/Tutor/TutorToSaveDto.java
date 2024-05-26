@@ -9,6 +9,4 @@ import java.util.List;
 @Data
 public class TutorToSaveDto extends UsuarioToSaveDto {
     private String tituloProfesional;
-    private List<TutoriaDto> tutoriaDtos;
-    private List<CategoriaDto> categoriaDtos;
 }
