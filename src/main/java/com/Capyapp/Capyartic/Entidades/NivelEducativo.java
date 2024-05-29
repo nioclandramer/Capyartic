@@ -23,6 +23,6 @@ public class NivelEducativo {
     @Column(nullable = false)
     private String nombre;
 
-    @OneToMany(mappedBy = "NivelEducativo")
+    @OneToMany(mappedBy = "nivelEducativo")
     private List<Alumno> alumno;
 }

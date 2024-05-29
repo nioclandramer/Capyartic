@@ -6,7 +6,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 @Data
-public abstract class UsuarioDto {
+public class UsuarioDto {
     private String primerNombre;
     private String segundoNombre;
     private String primerApellido;
