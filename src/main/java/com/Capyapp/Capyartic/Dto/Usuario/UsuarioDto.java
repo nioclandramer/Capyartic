@@ -12,7 +12,7 @@ public class UsuarioDto {
     private String primerApellido;
     private String segundoApellido;
     private String email;
-    private Integer numeroTelefono;
+    private Long numeroTelefono;
     private String sexo;
     private String nombreUsuario;
     private LocalDateTime fechaRegistro;
