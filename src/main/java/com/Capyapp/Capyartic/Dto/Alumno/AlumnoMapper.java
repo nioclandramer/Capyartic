@@ -18,6 +18,9 @@ public interface AlumnoMapper {
     @Mapping(source = "nivelEducativo", target = "nivelEducativo", qualifiedByName = "nivelEducativoToString")
     AlumnoDto alumnoToAlumnoDto(Alumno alumno);
 
+    @Mapping(source = "nivelEducativo", target = "nivelEducativo", qualifiedByName = "nivelEducativoToString")
+    Alumno alumnoToSaveDtoToAlumno(AlumnoToSaveDto alumnoToSaveDto);
+
     @Named("stringToNivelEducativo")
     default NivelEducativo stringToNivelEducativo(String nombre) {
         if (nombre == null) {
@@ -36,3 +39,5 @@ public interface AlumnoMapper {
         return nivelEducativo.getNombre();
     }
 }
+
+
