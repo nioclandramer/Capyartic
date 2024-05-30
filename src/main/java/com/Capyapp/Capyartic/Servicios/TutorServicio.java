@@ -1,4 +1,4 @@
 package com.Capyapp.Capyartic.Servicios;
 
-public class TutorServicio {
+public interface TutorServicio {
 }

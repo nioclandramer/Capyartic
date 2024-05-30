@@ -1,4 +1,4 @@
 package com.Capyapp.Capyartic.Servicios;
 
-public interface UsuarioServicio {
+public class UsuarioServicioIMPL {
 }

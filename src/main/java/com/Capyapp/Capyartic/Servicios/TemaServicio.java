@@ -1,4 +1,4 @@
 package com.Capyapp.Capyartic.Servicios;
 
-public class TemaServicio {
+public interface TemaServicio {
 }

@@ -1,4 +1,4 @@
 package com.Capyapp.Capyartic.Servicios;
 
-public class AlumnoServicio {
+public interface AlumnoServicio {
 }
