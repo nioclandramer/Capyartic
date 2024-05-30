@@ -11,7 +11,4 @@ public interface AdministradorMapper {
     Admin adminDtoToAdmin(AdministradorDto adminDto);
     AdministradorDto adminToAdminDto(Admin admin);
     Admin administradorToSaveDtoToAdmin(AdministradorToSaveDto administradorToSaveDtoDto);
-
-
-
 }
