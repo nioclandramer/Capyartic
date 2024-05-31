@@ -1,38 +1,26 @@
 package com.Capyapp.Capyartic.Dto.Alumno;
 
 import com.Capyapp.Capyartic.Entidades.Alumno;
-import com.Capyapp.Capyartic.Entidades.NivelEducativo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
 
 @Component
 @Mapper(componentModel = "spring")
 public interface AlumnoMapper {
-    AlumnoMapper INSTANCE= Mappers.getMapper(AlumnoMapper.class);
-    @Mapping(source = "nivelEducativo", target = "nivelEducativo", qualifiedByName = "stringToNivelEducativo")
-    Alumno alumnoDtoToAlumno(AlumnoDto alumnoDto);
+    AlumnoMapper INSTANCE = Mappers.getMapper(AlumnoMapper.class);
 
-    @Mapping(source = "nivelEducativo", target = "nivelEducativo", qualifiedByName = "nivelEducativoToString")
-    AlumnoDto alumnoToAlumnoDto(Alumno alumno);
+    @Mapping(target = "tutorias", source = "tutorias")
+    @Mapping(target = "nivelEducativo", source = "nivelEducativo")
+    AlumnoDto toAlumnoDto(Alumno alumno);
 
-    @Named("stringToNivelEducativo")
-    default NivelEducativo stringToNivelEducativo(String nombre) {
-        if (nombre == null) {
-            return null;
-        }
-        NivelEducativo nivelEducativo = new NivelEducativo();
-        nivelEducativo.setNombre(nombre);
-        return nivelEducativo;
-    }
+    @Mapping(target = "nivelEducativo", source = "nivelEducativo")
+    AlumnoToSaveDto toAlumnoToSaveDto(Alumno alumno);
 
-    @Named("nivelEducativoToString")
-    default String nivelEducativoToString(NivelEducativo nivelEducativo) {
-        if (nivelEducativo == null) {
-            return null;
-        }
-        return nivelEducativo.getNombre();
-    }
+    @Mapping(target = "tutorias", ignore = true) // Ignore or map if needed
+    Alumno toAlumno(AlumnoDto alumnoDto);
+
+    @Mapping(target = "tutorias", ignore = true) // Ignore or map if needed
+    Alumno toAlumno(AlumnoToSaveDto alumnoToSaveDto);
 }

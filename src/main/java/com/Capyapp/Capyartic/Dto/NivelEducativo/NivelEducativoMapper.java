@@ -15,4 +15,6 @@ public interface NivelEducativoMapper {
     NivelEducativoDto toNivelEducativoDto(NivelEducativoToSaveDto nivelEducativoToSaveDto);
 
     NivelEducativoToSaveDto toNivelEducativoToSaveDto(NivelEducativoDto nivelEducativoDto);
+
+
 }
