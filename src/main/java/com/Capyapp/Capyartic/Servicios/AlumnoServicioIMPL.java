@@ -27,7 +27,6 @@ public class AlumnoServicioIMPL implements AlumnoServicio{
     public AlumnoDto actualizarAlumno(Long id, AlumnoToSaveDto alumno) {
         Alumno alumno1=AlumnoMapper.INSTANCE.alumnoToSaveDtoToAlumno(alumno);
         Alumno alumnoExiste=alumnoRepositorio.findById(id).orElseThrow(()-> new AlumnoNotFoundException("Alumno no encontrado"));
-        alumnoExiste.setId(id);
         alumnoExiste.setPrimerNombre(alumno1.getPrimerNombre());
         alumnoExiste.setSegundoNombre(alumno1.getSegundoNombre());
         alumnoExiste.setPrimerApellido(alumno1.getPrimerApellido());

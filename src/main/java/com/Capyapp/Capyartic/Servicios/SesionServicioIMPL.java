@@ -25,7 +25,6 @@ public class SesionServicioIMPL implements SesionServicio {
     public SesionDto actualizarSesion(Long id, SesionToSaveDto sesion) {
         Sesion sesion1= SesionMapper.INSTANCE.SesionToSaveDto(sesion);
         Sesion sesionExistente= sesionRepositorio.findById(id).orElseThrow(()-> new SesionNotFoundException("se no existe en el sistema"));
-        sesionExistente.setId(id);
         sesionExistente.setHoraInicio(sesion1.getHoraInicio());
         sesionExistente.setHoraFinal(sesion1.getHoraFinal());
         sesionExistente.setFecha(sesion1.getFecha());

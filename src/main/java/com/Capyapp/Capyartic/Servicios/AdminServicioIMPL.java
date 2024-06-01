@@ -27,7 +27,6 @@ public class AdminServicioIMPL implements AdminServicio {
     public AdministradorDto actualizarAdministrador(Long id,AdministradorToSaveDto administrador) {
         Admin admin1= AdministradorMapper.INSTANCE.administradorToSaveDtoToAdmin(administrador);
         Admin adminExiste=adminRepositorio.findById(id).orElseThrow(()-> new AdministradorNotFoundException("Administrador no encontrado"));
-        adminExiste.setId(id);
         adminExiste.setPrimerNombre(admin1.getPrimerNombre());
         adminExiste.setSegundoNombre(admin1.getSegundoNombre());
         adminExiste.setPrimerApellido(admin1.getPrimerApellido());

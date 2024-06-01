@@ -48,7 +48,6 @@ public class TutorServicioIMPL implements TutorServicio {
     public TutorDto actualizarTutor(Long id,TutorToSaveDto tutor) throws TutorNotFoundException {
         Tutor tutor1 = TutorMapper.INSTANCE.toEntity(tutor);
         Tutor tutorExiste=tutorRepositorio.findById(id).orElseThrow(()->new TutorNotFoundException("Tutor no encontrado"));
-        tutorExiste.setId(id);
         tutorExiste.setPrimerNombre(tutor1.getPrimerNombre());
         tutorExiste.setSegundoNombre(tutor1.getSegundoNombre());
         tutorExiste.setPrimerApellido(tutor1.getPrimerApellido());
