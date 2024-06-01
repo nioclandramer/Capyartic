@@ -23,4 +23,6 @@ public interface TutorRepositorio extends JpaRepository<Tutor,Long> {
     @Query("SELECT t FROM Tutor t JOIN t.categorias c " +
             "WHERE c.nombre = :nombreCategoria AND t.estadoUsuario = 'ACTIVO'")
     List<Tutor> findTutorsByCategoriaNombreAndEstadoActivo(@Param("nombreCategoria") String nombreCategoria);
+
+    Optional<Tutor> findTutorByNombreUsuarioAndcAndContraseña(String nombreUsuario,String contrasena);
 }
