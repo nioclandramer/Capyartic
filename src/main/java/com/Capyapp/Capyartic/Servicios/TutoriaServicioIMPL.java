@@ -3,8 +3,6 @@ package com.Capyapp.Capyartic.Servicios;
 import com.Capyapp.Capyartic.Dto.Tutoria.TutoriaDto;
 import com.Capyapp.Capyartic.Dto.Tutoria.TutoriaMapper;
 import com.Capyapp.Capyartic.Dto.Tutoria.TutoriaToSaveDto;
-import com.Capyapp.Capyartic.Entidades.EstadoTutoria;
-import com.Capyapp.Capyartic.Entidades.Tutor;
 import com.Capyapp.Capyartic.Entidades.Tutoria;
 import com.Capyapp.Capyartic.Excepciónes.TutorNotFoundException;
 import com.Capyapp.Capyartic.Excepciónes.TutoriaNotFoundException;
