@@ -34,7 +34,7 @@ public class TutorServicioIMPL implements TutorServicio {
 
     @Override
     public Optional<TutorDto> validarTutor(String nombreUsuario, String contrasena) throws TutorNotFoundException {
-        Tutor tutor = tutorRepositorio.findTutorByNombreUsuarioAndcAndContraseña(nombreUsuario,contrasena).orElseThrow(()->new TutorNotFoundException("Usuario Tutor o Contraseña no coinciden"));
+        Tutor tutor = tutorRepositorio.findTutorByNombreUsuarioAndContraseña(nombreUsuario,contrasena).orElseThrow(()->new TutorNotFoundException("Usuario Tutor o Contraseña no coinciden"));
         return Optional.ofNullable(TutorMapper.INSTANCE.tutorToDto(tutor));
     }
 
@@ -71,6 +71,6 @@ public class TutorServicioIMPL implements TutorServicio {
     public List<TutorDto> mostrarTuroresPorCategoria(String categoria) throws TutorNotFoundException {
         List<Tutor> tutors=tutorRepositorio.findTutorsByCategoriaNombreAndEstadoActivo(categoria);
         List<TutorDto> tutorDtos=tutors.stream().map(TutorMapper.INSTANCE::tutorToDto).collect(Collectors.toList());
-        return List.of((TutorDto) tutorDtos);
+        return tutorDtos;
     }
 }

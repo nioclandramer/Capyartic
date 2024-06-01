@@ -1,6 +1,5 @@
 package com.Capyapp.Capyartic.Repositorios;
 
-import com.Capyapp.Capyartic.Entidades.Categoria;
 import com.Capyapp.Capyartic.Entidades.Tutor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -24,5 +23,5 @@ public interface TutorRepositorio extends JpaRepository<Tutor,Long> {
             "WHERE c.nombre = :nombreCategoria AND t.estadoUsuario = 'ACTIVO'")
     List<Tutor> findTutorsByCategoriaNombreAndEstadoActivo(@Param("nombreCategoria") String nombreCategoria);
 
-    Optional<Tutor> findTutorByNombreUsuarioAndcAndContraseña(String nombreUsuario,String contrasena);
+    Optional<Tutor> findTutorByNombreUsuarioAndContraseña(String nombreUsuario, String contrasena);
 }

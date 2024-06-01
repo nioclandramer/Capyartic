@@ -9,8 +9,10 @@ import org.springframework.stereotype.Component;
 @Mapper(componentModel = "spring")
 public interface NivelEducativoMapper {
     NivelEducativoMapper INSTANCE = Mappers.getMapper(NivelEducativoMapper.class);
-    NivelEducativoDto nivelEducativoToDto(NivelEducativo nivelEducativo);
-    NivelEducativo dtoToNivelEducativo(NivelEducativoDto dto);
-    NivelEducativo toSaveDtoToNivelEducativo(NivelEducativoToSaveDto dto);
 
+    NivelEducativo toSaveDtoToNivelEducativo(NivelEducativoToSaveDto nivelEducativoToSaveDto);
+
+    NivelEducativoDto nivelEducativoToDto(NivelEducativo nivelEducativo);
+
+    NivelEducativoToSaveDto toNivelEducativoToSaveDto(NivelEducativoDto nivelEducativoDto);
 }
