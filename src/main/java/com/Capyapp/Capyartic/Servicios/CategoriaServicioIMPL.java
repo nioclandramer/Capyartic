@@ -8,6 +8,10 @@ import com.Capyapp.Capyartic.Excepciónes.CategoriaNotFoundException;
 import com.Capyapp.Capyartic.Repositorios.CategoriaRepositorio;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 @Service
 public class CategoriaServicioIMPL implements  CategoriaServicio  {
     private final CategoriaRepositorio categoriaRepositorio;
@@ -42,5 +46,13 @@ public class CategoriaServicioIMPL implements  CategoriaServicio  {
     public void deleteById(Long id) throws CategoriaNotFoundException {
         Categoria categoria= categoriaRepositorio.findById(id).orElseThrow(()-> new CategoriaNotFoundException("Categoria no existe"));
         categoriaRepositorio.deleteById(id);
+    }
+
+    @Override
+    public Optional<List<CategoriaDto>> getAllCategorias() {
+        List<Categoria> categorias= categoriaRepositorio.findAll();
+        List<CategoriaDto> categoriaDtos= categorias.stream().map(CategoriaMapper.INSTANCE::categoriaToCategoriaDto).collect(Collectors.toList());
+
+        return Optional.of(categoriaDtos);
     }
 }
