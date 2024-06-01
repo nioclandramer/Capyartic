@@ -9,6 +9,8 @@ import com.Capyapp.Capyartic.Repositorios.TemaRepositorio;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TemaServicioIMPL implements TemaServicio{
@@ -37,17 +39,22 @@ public class TemaServicioIMPL implements TemaServicio{
     }
 
     @Override
-    public TemaDto findTemaById(Long id) {
-        return null;
+    public TemaDto findTemaById(Long id)throws TemaNotFoundException {
+        Tema  tema= temaRepositorio.findById(id).orElseThrow(()->new TemaNotFoundException("Tema no encontrado"));
+
+        return TemaMapper.INSTANCE.temaToTemaDto(tema);
     }
 
     @Override
-    public List<TemaDto> findAllTema() {
-        return List.of();
+    public Optional<List<TemaDto>> findAllTema() {
+        List<Tema> temas= temaRepositorio.findAll();
+        List<TemaDto> temaDtos=temas.stream().map(TemaMapper.INSTANCE::temaToTemaDto).collect(Collectors.toList());
+        return Optional.of(temaDtos);
     }
 
     @Override
-    public void eliminarTema(Long id) {
-
+    public void eliminarTema(Long id) throws TemaNotFoundException {
+        Tema tema= temaRepositorio.findById(id).orElseThrow(()->new TemaNotFoundException("Tema no encontrado"));
+        temaRepositorio.delete(tema);
     }
 }
