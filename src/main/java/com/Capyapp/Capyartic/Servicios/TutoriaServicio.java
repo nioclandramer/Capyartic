@@ -15,6 +15,7 @@ public interface TutoriaServicio {
     TutoriaDto actualizarTutorua(TutoriaToSaveDto Turia, Long idTurtoria) throws TutoriaNotFoundException;
     Optional<List<TutoriaDto>> mostrarTutoriasdeTutor(Long idTutor)throws TutoriaNotFoundException;
     Optional<List<TutoriaDto>> getAllTutoria()throws TutoriaNotFoundException;
+    Optional<List<TutoriaDto>> mostrarTutoriasTutorporEstado(Long idTutor,EstadoTutoria estado)throws TutoriaNotFoundException;
     Optional<List<TutoriaDto>> mostrarTutoriasdeAlumno(Long idAlumno)throws TutoriaNotFoundException;
     void deleteById(Long idTutoria) throws TutoriaNotFoundException;
 }

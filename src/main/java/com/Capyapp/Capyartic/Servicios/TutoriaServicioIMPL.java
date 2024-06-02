@@ -41,8 +41,9 @@ public class TutoriaServicioIMPL implements TutoriaServicio{
 
     @Override
     public Optional<List<TutoriaDto>> mostrarTutoriasdeTutor(Long idTutor) throws TutoriaNotFoundException {
-
-        return Optional.empty();
+        List<Tutoria> tutorias = tutoriaRepositorio.findByTutor_Id(idTutor);
+        List<TutoriaDto> tutoriasDto =tutorias.stream().map(TutoriaMapper.INSTANCE::tutoriaToTutoriaDto).collect(Collectors.toList());
+        return Optional.of(tutoriasDto);
     }
 
     @Override
@@ -53,8 +54,17 @@ public class TutoriaServicioIMPL implements TutoriaServicio{
     }
 
     @Override
+    public Optional<List<TutoriaDto>> mostrarTutoriasTutorporEstado(Long idTutor, EstadoTutoria estado) throws TutoriaNotFoundException {
+        List<Tutoria> tutorias = tutoriaRepositorio.findByTutor_IdAndEstadoTutoria(idTutor, estado);
+        List<TutoriaDto> tutoriasDto =tutorias.stream().map(TutoriaMapper.INSTANCE::tutoriaToTutoriaDto).collect(Collectors.toList());
+        return Optional.of(tutoriasDto);
+    }
+
+    @Override
     public Optional<List<TutoriaDto>> mostrarTutoriasdeAlumno(Long idAlumno) throws TutoriaNotFoundException {
-        return Optional.empty();
+        List<Tutoria> tutorias = tutoriaRepositorio.findByAlumno_Id(idAlumno);
+        List<TutoriaDto> tutoriasDto =tutorias.stream().map(TutoriaMapper.INSTANCE::tutoriaToTutoriaDto).collect(Collectors.toList());
+        return Optional.of(tutoriasDto);
     }
 
     @Override

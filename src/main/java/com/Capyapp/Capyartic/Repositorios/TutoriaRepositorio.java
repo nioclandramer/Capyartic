@@ -13,12 +13,9 @@ import java.util.List;
 public interface TutoriaRepositorio extends JpaRepository<Tutoria,Long> {
 
     // Método para encontrar todas las tutorías de un tutor
-    List<Tutoria> findAllByTutor(Tutor tutor);
+    List<Tutoria> findByTutor_Id(Long idTutor);
+    List<Tutoria> findByAlumno_Id(Long idAlumno);
 
-    List<Tutoria>  findAllByAlumno(Alumno alumno);
 
-    // Método para encontrar todas las tutorías de un tutor y las tutorías con el estado "SOLICITADA"
-    @Query("SELECT t FROM Tutoria t WHERE t.tutor = :tutor OR t.estadoTutoria = :estadoTutoria")
-    List<Tutoria> findAllByTutorOrEstadoTutoria(@Param("tutor") Tutor tutor, @Param("estadoTutoria") EstadoTutoria estadoTutoria);
-
+    List<Tutoria> findByTutor_IdAndEstadoTutoria(Long idTutor, EstadoTutoria estadoTutoria);
 }
