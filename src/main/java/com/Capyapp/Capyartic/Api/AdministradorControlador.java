@@ -53,8 +53,12 @@ public class AdministradorControlador {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long idAdministrador){
-        adminServicio.deleteById(idAdministrador);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Void> delete(@PathVariable("id") Long idAdministrador){
+        try {
+            adminServicio.deleteById(idAdministrador);
+            return ResponseEntity.noContent().build();
+        }catch (AdministradorNotFoundException e){
+            return ResponseEntity.notFound().build();
+        }
     }
 }

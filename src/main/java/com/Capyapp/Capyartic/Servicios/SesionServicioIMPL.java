@@ -6,10 +6,12 @@ import com.Capyapp.Capyartic.Dto.Sesion.SesionToSaveDto;
 import com.Capyapp.Capyartic.Entidades.Sesion;
 import com.Capyapp.Capyartic.Excepciónes.SesionNotFoundException;
 import com.Capyapp.Capyartic.Repositorios.SesionRepositorio;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class SesionServicioIMPL implements SesionServicio {
     private final SesionRepositorio sesionRepositorio;
 
