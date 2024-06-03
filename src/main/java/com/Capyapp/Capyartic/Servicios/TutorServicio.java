@@ -9,10 +9,11 @@ import java.util.Optional;
 
 public interface TutorServicio {
     TutorDto guardar(TutorToSaveDto tutor);
-    void eliminarTutor(Long id) throws TutorNotFoundException;
+
     Optional<TutorDto> validarTutor(String nombreUsuario, String contrasena) throws TutorNotFoundException;
     Optional<TutorDto> buscarTutorPorId(Long id) throws TutorNotFoundException;
     TutorDto actualizarTutor(Long id,TutorToSaveDto tutor) throws TutorNotFoundException;
     List<TutorDto> mostrarTuroresPorCategoria(String categoria) throws TutorNotFoundException;
-
+    void eliminarTutor(Long id) throws TutorNotFoundException;
+    List<TutorDto> getAllTutor() throws TutorNotFoundException;
 }
