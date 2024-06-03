@@ -8,6 +8,9 @@ import com.Capyapp.Capyartic.Excepciónes.AdministradorNotFoundException;
 import com.Capyapp.Capyartic.Repositorios.AdminRepositorio;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class AdminServicioIMPL implements AdminServicio {
     private final AdminRepositorio adminRepositorio;
@@ -20,7 +23,7 @@ public class AdminServicioIMPL implements AdminServicio {
     public AdministradorDto guardarAdministrador(AdministradorToSaveDto administrador) {
         Admin admin1= AdministradorMapper.INSTANCE.administradorToSaveDtoToAdmin(administrador);
         Admin adminGuardado = adminRepositorio.save(admin1);
-        return AdministradorMapper.INSTANCE.adminToAdminDto(adminGuardado);
+        return AdministradorMapper.INSTANCE.adminDtoToAdmin(adminGuardado);
     }
 
     @Override
@@ -41,18 +44,25 @@ public class AdminServicioIMPL implements AdminServicio {
         adminExiste.setRolUser(admin1.getRolUser());
         adminExiste.setEstadoUsuario(admin1.getEstadoUsuario());
         adminExiste=adminRepositorio.save(adminExiste);
-        return AdministradorMapper.INSTANCE.adminToAdminDto(adminExiste);
+        return AdministradorMapper.INSTANCE.adminDtoToAdmin(adminExiste);
     }
 
     @Override
     public AdministradorDto findById(Long id) throws AdministradorNotFoundException {
         Admin admin=adminRepositorio.findById(id).orElseThrow(()-> new AdministradorNotFoundException("Administrador no encontrado"));
-        return AdministradorMapper.INSTANCE.adminToAdminDto(admin);
+        return AdministradorMapper.INSTANCE.adminDtoToAdmin(admin);
     }
 
     @Override
     public void deleteById(Long id) throws AdministradorNotFoundException {
         Admin admin=adminRepositorio.findById(id).orElseThrow(()-> new AdministradorNotFoundException("Administrador no encontrado"));
         adminRepositorio.delete(admin);
+    }
+
+    @Override
+    public Optional<List<AdministradorDto>> getAllAdministrador() {
+        List<Admin> admins=adminRepositorio.findAll();
+        List<AdministradorDto> administradoresDto = admins.stream().map(AdministradorMapper.INSTANCE::adminDtoToAdmin).toList();
+        return Optional.of(administradoresDto);
     }
 }

@@ -8,6 +8,9 @@ import com.Capyapp.Capyartic.Excepciónes.AlumnoNotFoundException;
 import com.Capyapp.Capyartic.Repositorios.AlumnoRepositorio;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class AlumnoServicioIMPL implements AlumnoServicio{
     private final AlumnoRepositorio alumnoRepositorio;
@@ -20,7 +23,7 @@ public class AlumnoServicioIMPL implements AlumnoServicio{
     public AlumnoDto guardarAlumno(AlumnoToSaveDto alumno) {
         Alumno alumno1=AlumnoMapper.INSTANCE.alumnoToSaveDtoToAlumno(alumno);
         Alumno alumnoGuardado=alumnoRepositorio.save(alumno1);
-        return AlumnoMapper.INSTANCE.alumnoToAlumnoDto(alumnoGuardado);
+        return AlumnoMapper.INSTANCE.alumnoDtoToAlumno(alumnoGuardado);
     }
 
     @Override
@@ -43,18 +46,25 @@ public class AlumnoServicioIMPL implements AlumnoServicio{
         alumnoExiste.setTutorias(alumno1.getTutorias());
         alumnoExiste.setNivelEducativo(alumno1.getNivelEducativo());
         alumnoExiste=alumnoRepositorio.save(alumnoExiste);
-        return AlumnoMapper.INSTANCE.alumnoToAlumnoDto(alumnoExiste);
+        return AlumnoMapper.INSTANCE.alumnoDtoToAlumno(alumnoExiste);
     }
 
     @Override
     public AlumnoDto findById(Long id) throws AlumnoNotFoundException {
         Alumno alumno=alumnoRepositorio.findById(id).orElseThrow(()-> new AlumnoNotFoundException("Alumno no encontrado"));
-        return AlumnoMapper.INSTANCE.alumnoToAlumnoDto(alumno);
+        return AlumnoMapper.INSTANCE.alumnoDtoToAlumno(alumno);
     }
 
     @Override
     public void deleteById(Long id) throws AlumnoNotFoundException {
         Alumno alumno=alumnoRepositorio.findById(id).orElseThrow(()-> new AlumnoNotFoundException("Alumno no encontrado"));
         alumnoRepositorio.delete(alumno);
+    }
+
+    @Override
+    public Optional<List<AlumnoDto>> getAllAlumnos() {
+        List<Alumno> alumnos=alumnoRepositorio.findAll();
+        List<AlumnoDto> alumnosDto= alumnos.stream().map(AlumnoMapper.INSTANCE::alumnoDtoToAlumno).toList();
+        return Optional.of(alumnosDto);
     }
 }

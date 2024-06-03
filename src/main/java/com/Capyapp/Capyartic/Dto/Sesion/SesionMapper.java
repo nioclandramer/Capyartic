@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Mapper(componentModel = "spring")
 public interface SesionMapper {
     SesionMapper INSTANCE= Mappers.getMapper(SesionMapper.class);
-    SesionDto SesionToSesionDto(Sesion sesion);
-    Sesion SesionDtoToSesion(SesionDto sesion);
+    SesionDto sesionDtoToSesion(Sesion sesion);
+    Sesion sesionToSesionDto(SesionDto sesionDto);
     Sesion SesionToSaveDto(SesionToSaveDto sesionToSaveDto);
 }
