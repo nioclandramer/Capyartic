@@ -3,6 +3,7 @@ package com.Capyapp.Capyartic.Servicios;
 import com.Capyapp.Capyartic.Dto.Tutoria.TutoriaDto;
 import com.Capyapp.Capyartic.Dto.Tutoria.TutoriaMapper;
 import com.Capyapp.Capyartic.Dto.Tutoria.TutoriaToSaveDto;
+import com.Capyapp.Capyartic.Entidades.EstadoTutoria;
 import com.Capyapp.Capyartic.Entidades.Tutoria;
 import com.Capyapp.Capyartic.Excepciónes.TutorNotFoundException;
 import com.Capyapp.Capyartic.Excepciónes.TutoriaNotFoundException;
@@ -50,6 +51,8 @@ public class TutoriaServicioIMPL implements TutoriaServicio{
         List<TutoriaDto> tutoriasDto =tutorias.stream().map(TutoriaMapper.INSTANCE::tutoriaToTutoriaDto).collect(Collectors.toList());
         return Optional.of(tutoriasDto);
     }
+
+
 
     @Override
     public Optional<List<TutoriaDto>> mostrarTutoriasTutorporEstado(Long idTutor, EstadoTutoria estado) throws TutoriaNotFoundException {
