@@ -15,4 +15,5 @@ public interface CategoriaServicio {
     CategoriaDto findById(Long id)throws CategoriaNotFoundException;
     void deleteById(Long id)throws CategoriaNotFoundException;
     Optional<List<CategoriaDto>> getAllCategorias();
+    Optional<List<CategoriaDto>> categoriasConTutoresAct();
 }

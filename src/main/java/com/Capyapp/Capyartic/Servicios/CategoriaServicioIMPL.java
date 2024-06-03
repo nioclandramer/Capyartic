@@ -54,4 +54,11 @@ public class CategoriaServicioIMPL implements  CategoriaServicio  {
         List<CategoriaDto> categoriaDtos= categorias.stream().map(CategoriaMapper.INSTANCE::categoriaToCategoriaDto).collect(Collectors.toList());
         return Optional.of(categoriaDtos);
     }
+
+    @Override
+    public Optional<List<CategoriaDto>> categoriasConTutoresAct() {
+        List<Categoria> categorias= categoriaRepositorio.findCategoriasWithActiveTutors();
+        List<CategoriaDto> categoriaDtos= categorias.stream().map(CategoriaMapper.INSTANCE::categoriaToCategoriaDto).collect(Collectors.toList());
+        return Optional.of(categoriaDtos);
+    }
 }
