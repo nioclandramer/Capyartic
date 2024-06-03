@@ -13,4 +13,5 @@ public interface TemaServicio {
     TemaDto findTemaById(Long id)throws TemaNotFoundException;
     Optional<List<TemaDto>> findAllTema();
     void eliminarTema(Long id)throws TemaNotFoundException;
+    Optional<List<TemaDto>> temaPorNombre(String nombre);
 }

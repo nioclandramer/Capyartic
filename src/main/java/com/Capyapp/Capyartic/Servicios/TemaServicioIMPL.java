@@ -57,4 +57,11 @@ public class TemaServicioIMPL implements TemaServicio{
         Tema tema= temaRepositorio.findById(id).orElseThrow(()->new TemaNotFoundException("Tema no encontrado"));
         temaRepositorio.delete(tema);
     }
+
+    @Override
+    public Optional<List<TemaDto>> temaPorNombre(String nombre) {
+        List<Tema> temas= temaRepositorio.findTemaByNombre(nombre);
+        List<TemaDto> temaDtos=temas.stream().map(TemaMapper.INSTANCE::temaToTemaDto).collect(Collectors.toList());
+        return Optional.of(temaDtos);
+    }
 }
