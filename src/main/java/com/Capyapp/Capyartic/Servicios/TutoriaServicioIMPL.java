@@ -31,7 +31,7 @@ public class TutoriaServicioIMPL implements TutoriaServicio{
     }
 
     @Override
-    public TutoriaDto actualizarTutorua(TutoriaToSaveDto tutoria, Long idTurtoria) throws TutoriaNotFoundException {
+    public TutoriaDto actualizarTutoria(TutoriaToSaveDto tutoria, Long idTurtoria) throws TutoriaNotFoundException {
         Tutoria tutoria1 =TutoriaMapper.INSTANCE.tutoriaToSaveDtoTutoria(tutoria);
         Tutoria tutoriaExiste=tutoriaRepositorio.findById(idTurtoria).orElseThrow(()->new TutorNotFoundException("Tutoria no existe"));
         tutoriaExiste.setEstadoTutoria(tutoria1.getEstadoTutoria());

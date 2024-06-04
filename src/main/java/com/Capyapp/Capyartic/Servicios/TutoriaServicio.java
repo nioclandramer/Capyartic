@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public interface TutoriaServicio {
     TutoriaDto guardarTutoria(TutoriaToSaveDto tutoriaToSaveDto);
-    TutoriaDto actualizarTutorua(TutoriaToSaveDto Turia, Long idTurtoria) throws TutoriaNotFoundException;
+    TutoriaDto actualizarTutoria(TutoriaToSaveDto Tutoria, Long idTurtoria) throws TutoriaNotFoundException;
     Optional<List<TutoriaDto>> mostrarTutoriasdeTutor(Long idTutor)throws TutoriaNotFoundException;
     Optional<List<TutoriaDto>> getAllTutoria()throws TutoriaNotFoundException;
     Optional<List<TutoriaDto>> mostrarTutoriasTutorporEstado(Long idTutor,EstadoTutoria estado)throws TutoriaNotFoundException;

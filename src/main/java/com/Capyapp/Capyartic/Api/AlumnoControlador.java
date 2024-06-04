@@ -22,7 +22,7 @@ public class AlumnoControlador {
     }
 
     @PostMapping
-    public ResponseEntity<AlumnoDto> create(@RequestBody @Valid AlumnoToSaveDto alumno){
+    public ResponseEntity<AlumnoDto> create(@RequestBody @Vali AlumnoToSaveDto alumno){
         AlumnoDto alumnoDto= alumnoServicio.guardarAlumno(alumno);
         return ResponseEntity.status(HttpStatus.CREATED).body(alumnoDto);
     }
