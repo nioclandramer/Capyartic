@@ -6,7 +6,7 @@ import com.Capyapp.Capyartic.Dto.Tutoria.TutoriaDto;
 import java.util.Collections;
 import java.util.List;
 
-public record CategoriaDto(
+public record CategoriaDto(Long id,
         String nombre,
         String descripcion,
         List<TutoriaDto> tutorias,

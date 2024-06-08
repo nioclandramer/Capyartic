@@ -34,8 +34,6 @@ public abstract class Usuario {
     @Column(nullable = false)
     private String sexo;
     @Column(nullable = false)
-    private String contraseña;
-    @Column(nullable = false)
     private String nombreUsuario;
     @Column(nullable = false)
     private LocalDateTime fechaRegistro;
@@ -47,5 +45,6 @@ public abstract class Usuario {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private EstadoUsuario estadoUsuario;
+    private String contrasena;
 
 }

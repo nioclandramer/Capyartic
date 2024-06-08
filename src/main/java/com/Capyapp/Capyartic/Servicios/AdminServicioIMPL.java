@@ -23,7 +23,7 @@ public class AdminServicioIMPL implements AdminServicio {
     public AdministradorDto guardarAdministrador(AdministradorToSaveDto administrador) {
         Admin admin1= AdministradorMapper.INSTANCE.administradorToSaveDtoToAdmin(administrador);
         Admin adminGuardado = adminRepositorio.save(admin1);
-        return AdministradorMapper.INSTANCE.adminDtoToAdmin(adminGuardado);
+        return AdministradorMapper.INSTANCE.adminToAdminDto(adminGuardado);
     }
 
     @Override
@@ -37,12 +37,12 @@ public class AdminServicioIMPL implements AdminServicio {
         adminExiste.setEmail(admin1.getEmail());
         adminExiste.setNumeroTelefono(admin1.getNumeroTelefono());
         adminExiste.setSexo(admin1.getSexo());
-        adminExiste.setContraseña(admin1.getContraseña());
         adminExiste.setNombreUsuario(admin1.getNombreUsuario());
         adminExiste.setFechaRegistro(admin1.getFechaRegistro());
         adminExiste.setFechaNacimiento(admin1.getFechaNacimiento());
         adminExiste.setRolUser(admin1.getRolUser());
         adminExiste.setEstadoUsuario(admin1.getEstadoUsuario());
+        adminExiste.setContrasena(admin1.getContrasena());
         adminExiste=adminRepositorio.save(adminExiste);
         return AdministradorMapper.INSTANCE.adminDtoToAdmin(adminExiste);
     }

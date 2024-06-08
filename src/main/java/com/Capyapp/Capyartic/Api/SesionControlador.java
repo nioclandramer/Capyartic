@@ -4,7 +4,6 @@ import com.Capyapp.Capyartic.Dto.Sesion.SesionDto;
 import com.Capyapp.Capyartic.Dto.Sesion.SesionToSaveDto;
 import com.Capyapp.Capyartic.Excepciónes.AlumnoNotFoundException;
 import com.Capyapp.Capyartic.Servicios.SesionServicio;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +21,7 @@ public class SesionControlador {
     }
 
     @PostMapping
-    public ResponseEntity<SesionDto> create(@RequestBody @Valid SesionToSaveDto sesion){
+    public ResponseEntity<SesionDto> create(@RequestBody  SesionToSaveDto sesion){
         SesionDto sesionDto= sesionServicio.guardarSesion(sesion);
         return ResponseEntity.status(HttpStatus.CREATED).body(sesionDto);
     }
@@ -44,7 +43,7 @@ public class SesionControlador {
     }
 
     @PutMapping
-    public ResponseEntity<Void> update(@RequestBody @Valid SesionToSaveDto sesion,Long idSesion){
+    public ResponseEntity<Void> update(@RequestBody SesionToSaveDto sesion,Long idSesion){
         try {
             SesionDto sesionDto=sesionServicio.actualizarSesion(idSesion,sesion);
             return ResponseEntity.noContent().build();

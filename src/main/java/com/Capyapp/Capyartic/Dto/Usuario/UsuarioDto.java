@@ -2,10 +2,13 @@ package com.Capyapp.Capyartic.Dto.Usuario;
 
 import com.Capyapp.Capyartic.Entidades.EstadoUsuario;
 import com.Capyapp.Capyartic.Entidades.Rol;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDateTime;
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class UsuarioDto {
     private String primerNombre;
     private String segundoNombre;
@@ -19,4 +22,5 @@ public class UsuarioDto {
     private LocalDateTime fechaNacimiento;
     private Rol rolUser;
     private EstadoUsuario estadoUsuario;
+    private String contrasena;
 }

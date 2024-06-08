@@ -27,29 +27,29 @@ public class TemaControlador {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping
-    public ResponseEntity<Void> update(@PathVariable Long idTema,@RequestBody TemaToSaveDto tema) {
-        temaServicio.actualizarTema(idTema,tema);
-        return ResponseEntity.status(HttpStatus.OK).build();
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@PathVariable Long id,@RequestBody TemaToSaveDto tema) {
+        temaServicio.actualizarTema(id,tema);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping
     public ResponseEntity<Optional< List<TemaDto>>> getAll() {
         Optional< List<TemaDto>> temas=temaServicio.findAllTema();
-        return ResponseEntity.ok(temas);
+        return ResponseEntity.ok().body(temas);
     }
 
-    @GetMapping("/id")
-    public ResponseEntity< TemaDto> getTemabyid(@PathVariable Long idTema) {
-        TemaDto tema=temaServicio.findTemaById(idTema);
-        return ResponseEntity.ok(tema);
+    @GetMapping("/{id}")
+    public ResponseEntity< TemaDto> getTemabyid(@PathVariable ("id") Long id) {
+        TemaDto tema=temaServicio.findTemaById(id);
+        return ResponseEntity.ok().body(tema);
     }
 
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long idTema) {
-        temaServicio.eliminarTema(idTema);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        temaServicio.eliminarTema(id);
         return ResponseEntity.noContent().build();
     }
 }

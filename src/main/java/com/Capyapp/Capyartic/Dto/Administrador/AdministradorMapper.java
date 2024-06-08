@@ -9,6 +9,6 @@ import org.springframework.stereotype.Component;
 public interface AdministradorMapper {
     AdministradorMapper INSTANCE= Mappers.getMapper(AdministradorMapper.class);
     AdministradorDto adminDtoToAdmin(Admin admin);
-    Admin adminToAdminDto(AdministradorDto adminDto);
+    AdministradorDto adminToAdminDto(Admin adminDto);
     Admin administradorToSaveDtoToAdmin(AdministradorToSaveDto administradorToSaveDtoDto);
 }

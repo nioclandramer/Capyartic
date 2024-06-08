@@ -4,7 +4,6 @@ import com.Capyapp.Capyartic.Dto.Alumno.AlumnoDto;
 import com.Capyapp.Capyartic.Dto.Alumno.AlumnoToSaveDto;
 import com.Capyapp.Capyartic.Excepciónes.AlumnoNotFoundException;
 import com.Capyapp.Capyartic.Servicios.AlumnoServicio;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +21,7 @@ public class AlumnoControlador {
     }
 
     @PostMapping
-    public ResponseEntity<AlumnoDto> create(@RequestBody @Vali AlumnoToSaveDto alumno){
+    public ResponseEntity<AlumnoDto> create(@RequestBody  AlumnoToSaveDto alumno){
         AlumnoDto alumnoDto= alumnoServicio.guardarAlumno(alumno);
         return ResponseEntity.status(HttpStatus.CREATED).body(alumnoDto);
     }
@@ -44,7 +43,7 @@ public class AlumnoControlador {
     }
 
     @PutMapping
-    public ResponseEntity<Void> update(@RequestBody @Valid AlumnoToSaveDto alumno,Long idAlumno){
+    public ResponseEntity<Void> update(@RequestBody  AlumnoToSaveDto alumno,Long idAlumno){
         try {
             AlumnoDto alumnoDto=alumnoServicio.actualizarAlumno(idAlumno,alumno);
             return ResponseEntity.noContent().build();

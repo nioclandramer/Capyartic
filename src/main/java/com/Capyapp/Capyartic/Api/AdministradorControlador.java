@@ -3,7 +3,6 @@ import com.Capyapp.Capyartic.Dto.Administrador.AdministradorDto;
 import com.Capyapp.Capyartic.Dto.Administrador.AdministradorToSaveDto;
 import com.Capyapp.Capyartic.Excepciónes.AdministradorNotFoundException;
 import com.Capyapp.Capyartic.Servicios.AdminServicio;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +20,7 @@ public class AdministradorControlador {
     }
 
     @PostMapping
-    public ResponseEntity<AdministradorDto> create(@RequestBody @Valid AdministradorToSaveDto administrador){
+    public ResponseEntity<AdministradorDto> create(@RequestBody AdministradorToSaveDto administrador){
         AdministradorDto administradorDto=adminServicio.guardarAdministrador(administrador);
         return ResponseEntity.status(HttpStatus.CREATED).body(administradorDto);
     }
@@ -43,9 +42,9 @@ public class AdministradorControlador {
     }
 
     @PutMapping
-    public ResponseEntity<Void> update(@RequestBody @Valid AdministradorToSaveDto administrador,Long idAdministrador){
+    public ResponseEntity<Void> update(@RequestBody  AdministradorToSaveDto administrador,Long idAdministrador){
         try {
-            AdministradorDto administradorDto =adminServicio.actualizarAdministrador(idAdministrador,administrador);
+            adminServicio.actualizarAdministrador(idAdministrador,administrador);
             return ResponseEntity.noContent().build();
         }catch (AdministradorNotFoundException e){
             return ResponseEntity.notFound().build();

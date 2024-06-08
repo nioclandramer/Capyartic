@@ -25,10 +25,10 @@ public class CategoriaControlador {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping
-    public ResponseEntity<Void> update(@PathVariable Long idCategoria,@RequestBody CategoriaToSaveDto categoria) {
-        categoriaServicio.actualizarCategoria(idCategoria, categoria);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@PathVariable("id") Long id,@RequestBody CategoriaToSaveDto categoria) {
+        categoriaServicio.actualizarCategoria(id, categoria);
+        return ResponseEntity.noContent().build();
     }
 
 
@@ -38,7 +38,7 @@ public class CategoriaControlador {
         return ResponseEntity.ok().body(categorias);
     }
 
-    @GetMapping
+    @GetMapping("/activas")
     public ResponseEntity<Optional<List<CategoriaDto>>> getCategoriasActivas() {
         Optional<List<CategoriaDto>> categorias=categoriaServicio.categoriasConTutoresAct();
         return ResponseEntity.ok().body(categorias);
@@ -46,8 +46,8 @@ public class CategoriaControlador {
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long idCategoria) {
-        categoriaServicio.deleteById(idCategoria);
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
+        categoriaServicio.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 

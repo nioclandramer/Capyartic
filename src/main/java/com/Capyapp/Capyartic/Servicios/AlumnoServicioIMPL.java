@@ -37,7 +37,7 @@ public class AlumnoServicioIMPL implements AlumnoServicio{
         alumnoExiste.setEmail(alumno1.getEmail());
         alumnoExiste.setNumeroTelefono(alumno1.getNumeroTelefono());
         alumnoExiste.setSexo(alumno1.getSexo());
-        alumnoExiste.setContraseña(alumno1.getContraseña());
+        alumnoExiste.setContrasena(alumno1.getContrasena());
         alumnoExiste.setNombreUsuario(alumno1.getNombreUsuario());
         alumnoExiste.setFechaRegistro(alumno1.getFechaRegistro());
         alumnoExiste.setFechaNacimiento(alumno1.getFechaNacimiento());

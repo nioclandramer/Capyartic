@@ -33,6 +33,7 @@ public class CategoriaServicioIMPL implements  CategoriaServicio  {
         Categoria categoriaExiste=categoriaRepositorio.findById(id).orElseThrow(()-> new CategoriaNotFoundException("Categoría no existe"));
         categoriaExiste.setDescripcion(categoria1.getDescripcion());
         categoriaExiste.setNombre(categoria1.getNombre());
+        categoriaRepositorio.save(categoriaExiste);
         return CategoriaMapper.INSTANCE.categoriaToCategoriaDto(categoriaExiste);
     }
 
