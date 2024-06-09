@@ -5,4 +5,5 @@ import lombok.Data;
 
 @Data
 public class AdministradorDto extends UsuarioDto {
+    Long id;
 }

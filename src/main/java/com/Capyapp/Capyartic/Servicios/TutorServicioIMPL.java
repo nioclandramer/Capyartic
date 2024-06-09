@@ -33,10 +33,10 @@ public class TutorServicioIMPL implements TutorServicio {
     }
 
     @Override
-    public List<TutorDto> getAllTutor() throws TutorNotFoundException {
+    public Optional<List<TutorDto>> getAllTutor() throws TutorNotFoundException {
         List<Tutor> tutors=tutorRepositorio.findAll();
         List<TutorDto> tutorDtos=tutors.stream().map(TutorMapper.INSTANCE::tutorToDto).collect(Collectors.toList());
-        return tutorDtos;
+        return Optional.of(tutorDtos);
     }
 
     @Override

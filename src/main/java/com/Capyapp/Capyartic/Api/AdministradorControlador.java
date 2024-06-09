@@ -41,10 +41,10 @@ public class AdministradorControlador {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<Void> update(@RequestBody  AdministradorToSaveDto administrador,Long idAdministrador){
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@RequestBody  AdministradorToSaveDto administrador,@PathVariable Long id){
         try {
-            adminServicio.actualizarAdministrador(idAdministrador,administrador);
+            adminServicio.actualizarAdministrador(id,administrador);
             return ResponseEntity.noContent().build();
         }catch (AdministradorNotFoundException e){
             return ResponseEntity.notFound().build();

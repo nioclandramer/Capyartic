@@ -15,5 +15,5 @@ public interface TutorServicio {
     TutorDto actualizarTutor(Long id,TutorToSaveDto tutor) throws TutorNotFoundException;
     List<TutorDto> mostrarTuroresPorCategoria(String categoria) throws TutorNotFoundException;
     void eliminarTutor(Long id) throws TutorNotFoundException;
-    List<TutorDto> getAllTutor() throws TutorNotFoundException;
+    Optional<List<TutorDto>> getAllTutor() throws TutorNotFoundException;
 }

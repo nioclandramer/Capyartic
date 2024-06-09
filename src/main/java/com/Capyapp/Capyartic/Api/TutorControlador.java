@@ -28,15 +28,15 @@ public class TutorControlador {
         tutorServicio.guardar(tutor);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-    @PutMapping
-    public ResponseEntity<Void> update(@PathVariable Long idTutor,@RequestBody TutorToSaveDto tutor) {
-        tutorServicio.actualizarTutor(idTutor,tutor);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@PathVariable Long id,@RequestBody TutorToSaveDto tutor) {
+        tutorServicio.actualizarTutor(id,tutor);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping
-    public ResponseEntity<List<TutorDto>> getTutores() {
-        List<TutorDto> tutores= tutorServicio.getAllTutor();
+    public ResponseEntity <Optional<List<TutorDto>>> getTutores() {
+        Optional<List<TutorDto>> tutores= tutorServicio.getAllTutor();
         return ResponseEntity.ok().body(tutores);
     }
 
@@ -47,15 +47,15 @@ public class TutorControlador {
 
     }
 
-    @GetMapping("/id")
-    public ResponseEntity<Optional<TutorDto>> getTutorById(@PathVariable Long idTutor) {
-        Optional<TutorDto> tutores= tutorServicio.buscarTutorPorId(idTutor);
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<TutorDto>> getTutorById(@PathVariable Long id) {
+        Optional<TutorDto> tutores= tutorServicio.buscarTutorPorId(id);
         return ResponseEntity.ok(tutores);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long idTutor) {
-        tutorServicio.eliminarTutor(idTutor);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        tutorServicio.eliminarTutor(id);
         return ResponseEntity.noContent().build();
     }
 
