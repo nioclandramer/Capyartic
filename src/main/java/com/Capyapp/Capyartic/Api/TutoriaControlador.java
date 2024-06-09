@@ -2,6 +2,7 @@ package com.Capyapp.Capyartic.Api;
 
 import com.Capyapp.Capyartic.Dto.Tutoria.TutoriaDto;
 import com.Capyapp.Capyartic.Dto.Tutoria.TutoriaToSaveDto;
+import com.Capyapp.Capyartic.Entidades.EstadoTutoria;
 import com.Capyapp.Capyartic.Servicios.TutoriaServicio;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,23 @@ public class TutoriaControlador {
         Optional<List<TutoriaDto>> tutorias = tutoriaServicio.mostrarTutoriasdeTutor(idTutor);
         return ResponseEntity.ok(tutorias);
     }
+    @GetMapping("/AllTutor")
+    public ResponseEntity<Optional<List<TutoriaDto>>> getAll(){
+        Optional<List<TutoriaDto>> tutorias = tutoriaServicio.getAllTutoria();
+        return ResponseEntity.ok(tutorias);
+    };
 
+    @GetMapping("/byEstado")
+    public ResponseEntity<Optional<List<TutoriaDto>>> mostrarPorTutoryEstado(@PathVariable Long idTutor, EstadoTutoria estadoT){
+        Optional<List<TutoriaDto>> tutorias = tutoriaServicio.mostrarTutoriasTutorporEstado(idTutor,estadoT);
+        return ResponseEntity.ok(tutorias);
+    };
+
+    @GetMapping("/byAlumno")
+    public ResponseEntity<Optional<List<TutoriaDto>>> mostrarPorAlumno(@PathVariable Long idAlumno){
+        Optional<List<TutoriaDto>> tutorias = tutoriaServicio.mostrarTutoriasdeAlumno(idAlumno);
+        return ResponseEntity.ok(tutorias);
+    };
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long idTutoria) {

@@ -60,7 +60,11 @@ public class TutorControlador {
     }
 
 
-
+    @GetMapping("/tutor")
+    public ResponseEntity<Optional<TutorDto>> validarTutor( String nombreUsuario,String password) {
+        Optional<TutorDto> tutores= tutorServicio.validarTutor(nombreUsuario,password);
+        return ResponseEntity.ok(tutores);
+    }
 
 
 }
