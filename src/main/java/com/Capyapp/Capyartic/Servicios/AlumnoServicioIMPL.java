@@ -28,8 +28,11 @@ public class AlumnoServicioIMPL implements AlumnoServicio{
 
     @Override
     public AlumnoDto actualizarAlumno(Long id, AlumnoToSaveDto alumno) {
+        if (id == null) {
+            throw new IllegalArgumentException("El ID del alumno no debe ser nulo");
+        }
         Alumno alumno1=AlumnoMapper.INSTANCE.alumnoToSaveDtoToAlumno(alumno);
-        Alumno alumnoExiste=alumnoRepositorio.findById(id).orElseThrow(()-> new AlumnoNotFoundException("Alumno no encontrado"));
+        Alumno alumnoExiste=alumnoRepositorio.findById(id).orElseThrow(AlumnoNotFoundException::new);
         alumnoExiste.setPrimerNombre(alumno1.getPrimerNombre());
         alumnoExiste.setSegundoNombre(alumno1.getSegundoNombre());
         alumnoExiste.setPrimerApellido(alumno1.getPrimerApellido());
@@ -45,8 +48,8 @@ public class AlumnoServicioIMPL implements AlumnoServicio{
         alumnoExiste.setEstadoUsuario(alumno1.getEstadoUsuario());
         alumnoExiste.setTutorias(alumno1.getTutorias());
         alumnoExiste.setNivelEducativo(alumno1.getNivelEducativo());
-        alumnoExiste=alumnoRepositorio.save(alumnoExiste);
-        return AlumnoMapper.INSTANCE.alumnoDtoToAlumno(alumnoExiste);
+        alumnoRepositorio.save(alumnoExiste);
+        return AlumnoMapper.INSTANCE.alumnoToAlumnoDto(alumnoExiste);
     }
 
     @Override

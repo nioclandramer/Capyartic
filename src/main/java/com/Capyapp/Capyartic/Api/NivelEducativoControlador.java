@@ -28,30 +28,30 @@ public class NivelEducativoControlador {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping
-    public ResponseEntity<Void> update(@PathVariable Long idnivel,@RequestBody NivelEducativoToSaveDto nivelEducativo) {
-        nivelEducativoServicio.actulizarNivelEducativo(idnivel,nivelEducativo);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@PathVariable Long id,@RequestBody NivelEducativoToSaveDto nivelEducativo) {
+        nivelEducativoServicio.actulizarNivelEducativo(id,nivelEducativo);
+        return ResponseEntity.noContent().build();
 
     }
 
 
-    @GetMapping("/nivelEducativo")
+    @GetMapping()
     public ResponseEntity<Optional<List <NivelEducativoDto>>> getAll() {
         Optional<List <NivelEducativoDto>>  niveles=nivelEducativoServicio.findAllNivelEducativo();
         return ResponseEntity.ok().body(niveles);
     }
 
-    @GetMapping("/id")
-    public ResponseEntity<NivelEducativoDto> getById(@PathVariable Long idnivel) {
-        NivelEducativoDto  niveles=nivelEducativoServicio.findNivelEducativo(idnivel);
-        return ResponseEntity.ok(niveles);
+    @GetMapping("/{id}")
+    public ResponseEntity<NivelEducativoDto> getById(@PathVariable Long id) {
+        NivelEducativoDto  niveles=nivelEducativoServicio.findNivelEducativo(id);
+        return ResponseEntity.ok().body(niveles);
     }
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long idnivel) {
-        nivelEducativoServicio.deleteNivelEducativo(idnivel);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        nivelEducativoServicio.deleteNivelEducativo(id);
         return ResponseEntity.noContent().build();
     }
 

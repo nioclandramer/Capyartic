@@ -10,11 +10,8 @@ import java.util.Collections;
 import java.util.List;
 
 @Data
-public class AlumnoDto extends UsuarioDto {
-    private NivelEducativo nivelEducativo;
+public class AlumnoDto extends UsuarioDto { private Long id;
+    private NivelEducativoDto nivelEducativo;
     private List<TutoriaDto> tutorias;
 
-    public List<TutoriaDto> getUnmodifiableTutorias(){
-        return Collections.unmodifiableList(tutorias);
-    }
 }

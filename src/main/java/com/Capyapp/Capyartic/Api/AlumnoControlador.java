@@ -42,10 +42,10 @@ public class AlumnoControlador {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<Void> update(@RequestBody  AlumnoToSaveDto alumno,Long idAlumno){
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@PathVariable("id") Long id ,@RequestBody  AlumnoToSaveDto alumno){
         try {
-            AlumnoDto alumnoDto=alumnoServicio.actualizarAlumno(idAlumno,alumno);
+            AlumnoDto alumnoDto=alumnoServicio.actualizarAlumno(id,alumno);
             return ResponseEntity.noContent().build();
         }catch (AlumnoNotFoundException e){
             return ResponseEntity.notFound().build();
@@ -53,9 +53,9 @@ public class AlumnoControlador {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable("id") Long idAlumno){
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id){
         try {
-            alumnoServicio.deleteById(idAlumno);
+            alumnoServicio.deleteById(id);
             return ResponseEntity.noContent().build();
         }catch (AlumnoNotFoundException e){
             return ResponseEntity.notFound().build();

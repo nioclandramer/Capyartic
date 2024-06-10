@@ -1,7 +1,7 @@
 package com.Capyapp.Capyartic.Dto.NivelEducativo;
 
 
-public record NivelEducativoDto(
+public record NivelEducativoDto(Long id,
         String nombre
 ) {
 }

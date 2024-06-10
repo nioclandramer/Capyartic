@@ -33,19 +33,19 @@ public class SesionControlador {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SesionDto> getSesion(@PathVariable("id")Long idSesion){
+    public ResponseEntity<SesionDto> getSesion(@PathVariable("id")Long id){
         try {
-            SesionDto sesionDto=sesionServicio.findById(idSesion);
+            SesionDto sesionDto=sesionServicio.findById(id);
             return ResponseEntity.ok().body(sesionDto);
         }catch (AlumnoNotFoundException e){
             return ResponseEntity.notFound().build();
         }
     }
 
-    @PutMapping
-    public ResponseEntity<Void> update(@RequestBody SesionToSaveDto sesion,Long idSesion){
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@RequestBody SesionToSaveDto sesion,@PathVariable("id") Long id){
         try {
-            SesionDto sesionDto=sesionServicio.actualizarSesion(idSesion,sesion);
+            SesionDto sesionDto=sesionServicio.actualizarSesion(id,sesion);
             return ResponseEntity.noContent().build();
         }catch (AlumnoNotFoundException e){
             return ResponseEntity.notFound().build();

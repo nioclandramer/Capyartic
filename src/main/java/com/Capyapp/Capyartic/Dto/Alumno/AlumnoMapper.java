@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public interface AlumnoMapper {
     AlumnoMapper INSTANCE= Mappers.getMapper(AlumnoMapper.class);
     AlumnoDto alumnoDtoToAlumno(Alumno alumno);
-    Alumno alumnoToAlumnoDto(AlumnoDto alumnoDto);
+    AlumnoDto alumnoToAlumnoDto(Alumno alumno);
     Alumno alumnoToSaveDtoToAlumno(AlumnoToSaveDto alumnoToSaveDto);
 }
 
